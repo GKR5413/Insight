@@ -1,0 +1,24 @@
+.venv/
+.env
+__pycache__/
+.pytest_cache/
+
+# Large or generated data: the raw SEC quarters alone are ~2.4 GB
+data/raw/
+data/cache/
+data/uploads/
+data/eval/
+data/quality/
+data/*.sqlite
+data/*.sqlite-*
+data/milvus.db*
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Misc
+*.egg-info/
+.DS_Store
+milvus.db.lock
+.milvus.db.lock

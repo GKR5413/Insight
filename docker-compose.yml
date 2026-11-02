@@ -1,0 +1,13 @@
+# Redis is the only service the app needs. It is a cache: if it is down, the API falls back to an
+# in-process cache (slower repeat lookups, nothing lost). Milvus runs embedded (Milvus Lite) by default.
+#   docker compose up -d redis
+services:
+  redis:
+    image: redis:7-alpine
+    ports: ["6379:6379"]
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
